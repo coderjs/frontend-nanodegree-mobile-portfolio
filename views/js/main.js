@@ -133,6 +133,8 @@ pizzaIngredients.sauces = [
   "Marinara",
   "BBQ Sauce",
   "No Sauce",
+  "Pesto Sauce",
+  "Cream Sauce",
   "Hot Sauce"
 ];
 pizzaIngredients.crusts = [
