@@ -1,73 +1,53 @@
-## Website Performance Optimization portfolio project
+### VIEW ONLINE:
+This project can be viewed online here: [Mobile Portfolio Template]http://coderjs.github.io/frontend-nanodegree-mobile-portfolio/
 
-Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
+### PROJECT OBJECTIVES
+This is my submission for project 4 of the Udacity Front End Developer Nanodegree program. The objective of this project is to optimize a provided website with a number of optimization- and performance-related issues so that it achieves a target PageSpeed score and runs at 60 frames per second (~16ms).
 
-To get started, check out the repository, inspect the code,
+### PROJECT OUTCOME:
+	Original File (http://cameronwp.github.io/udportfolio/views/pizza.html):
+		* Time to generate pizzas on load: 14.64ms
+		* Time to resize pizzas: 138.045ms
+		* PageSpeed Insight Score: 66/100
+	Optimized File :
+		* Time to generate pizzas on load: 12.46ms
+		* Time to resize pizzas: 1.72ms
+		* PageSpeed Insight Score:
 
-### Getting started
+### APPROACH:
+As I am still a relatively new developer (and these are relatively advanced concepts for me), I have approached this project as follows:
+	1) Watched all specified Udacity course lectures and completed all quizes
+	2) Reviewed many of the recommended Udacuty supplemental materials
+	3) Conducted extensive independent research on core subject-matter to shore-up my comprehension (links referenced in file)
+	4) Reviewed and reverse engineered the work of other [more advanced] students who have previously completed this project to better undertand the proper approach
+		(for this project I have analyzed & benchmarked the posted work of github handles bw120, micyang, bahalps, jgroeder, kleinbottled, and others)
 
-####Part 1: Optimize PageSpeed Insights score for index.html
+### CONCEPTS LEARNED AND APPLIED:
+In this assignment I have learned and applied the following concepts:
+	* Performance benefits of reducing [large] image size
+	* Performance benefits of simplifying unnecessarily complex code
+	* Performance benefits of eliminating forced layout
+	* Performance benefits of preventing unnecessary looping through arrays of variables
+	* Performance benefits of not painting objects that arent visible to the user on page speed
+	* Benefits of employing User Timing APIs to measure performance of specific components
+	* Performance comparison between querySelector() and getElementBy_()
 
-Some useful tips to help you get started:
-
-1. Check out the repository
-1. To inspect the site on your phone, you can run a local server
-
-  ```bash
-  $> cd /path/to/your-project-folder
-  $> python -m SimpleHTTPServer 8080
-  ```
-
-1. Open a browser and visit localhost:8080
-1. Download and install [ngrok](https://ngrok.com/) to make your local server accessible remotely.
-
-  ``` bash
-  $> cd /path/to/your-project-folder
-  $> ngrok http 8080
-  ```
-
-1. Copy the public URL ngrok gives you and try running it through PageSpeed Insights! Optional: [More on integrating ngrok, Grunt and PageSpeed.](http://www.jamescryer.com/2014/06/12/grunt-pagespeed-and-ngrok-locally-testing/)
-
-Profile, optimize, measure... and then lather, rinse, and repeat. Good luck!
-
-####Part 2: Optimize Frames per Second in pizza.html
-
-To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js. 
-
-You might find the FPS Counter/HUD Display useful in Chrome developer tools described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
-
-### Optimization Tips and Tricks
-* [Optimizing Performance](https://developers.google.com/web/fundamentals/performance/ "web performance")
-* [Analyzing the Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/analyzing-crp.html "analyzing crp")
-* [Optimizing the Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/optimizing-critical-rendering-path.html "optimize the crp!")
-* [Avoiding Rendering Blocking CSS](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-blocking-css.html "render blocking css")
-* [Optimizing JavaScript](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/adding-interactivity-with-javascript.html "javascript")
-* [Measuring with Navigation Timing](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/measure-crp.html "nav timing api"). We didn't cover the Navigation Timing API in the first two lessons but it's an incredibly useful tool for automated page profiling. I highly recommend reading.
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/eliminate-downloads.html">The fewer the downloads, the better</a>
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/optimize-encoding-and-transfer.html">Reduce the size of text</a>
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization.html">Optimize images</a>
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching.html">HTTP caching</a>
-
-### Customization with Bootstrap
-The portfolio was built on Twitter's <a href="http://getbootstrap.com/">Bootstrap</a> framework. All custom styles are in `dist/css/portfolio.css` in the portfolio repo.
-
-* <a href="http://getbootstrap.com/css/">Bootstrap's CSS Classes</a>
-* <a href="http://getbootstrap.com/components/">Bootstrap's Components</a>
-
-### Sample Portfolios
-
-Feeling uninspired by the portfolio? Here's a list of cool portfolios I found after a few minutes of Googling.
-
-* <a href="http://www.reddit.com/r/webdev/comments/280qkr/would_anybody_like_to_post_their_portfolio_site/">A great discussion about portfolios on reddit</a>
-* <a href="http://ianlunn.co.uk/">http://ianlunn.co.uk/</a>
-* <a href="http://www.adhamdannaway.com/portfolio">http://www.adhamdannaway.com/portfolio</a>
-* <a href="http://www.timboelaars.nl/">http://www.timboelaars.nl/</a>
-* <a href="http://futoryan.prosite.com/">http://futoryan.prosite.com/</a>
-* <a href="http://playonpixels.prosite.com/21591/projects">http://playonpixels.prosite.com/21591/projects</a>
-* <a href="http://colintrenter.prosite.com/">http://colintrenter.prosite.com/</a>
-* <a href="http://calebmorris.prosite.com/">http://calebmorris.prosite.com/</a>
-* <a href="http://www.cullywright.com/">http://www.cullywright.com/</a>
-* <a href="http://yourjustlucky.com/">http://yourjustlucky.com/</a>
-* <a href="http://nicoledominguez.com/portfolio/">http://nicoledominguez.com/portfolio/</a>
-* <a href="http://www.roxannecook.com/">http://www.roxannecook.com/</a>
-* <a href="http://www.84colors.com/portfolio.html">http://www.84colors.com/portfolio.html</a>
+### SUMMARY OF CHANGES:
+Below is a partial summary of the changes made to this sample portfolio.
+	* images
+		1) I customized and minified the images according to specified requirements
+	* html pages
+		1) Referenced the smaller images in the html files
+	* views/main.js
+		1) Used getElementsByClassName() instead of querySelectorAll() and moved outside loop
+		2) Fixed random bug (changed adjective "noise" to the intended "noisy")
+		3) Replaced function determineDx() with simpler code
+		4) Made minor changes to User Timing API
+		5) Used style.transform instead of using style.left to change position
+		6) Reduced number of pizza columns
+		7) Moved mPizzas function outside of loop
+		8) Reduced number of pizzas to display on page
+	* views/css.style
+		1) Added additional attributes to css classes, removing them from javascript
+	* Other/Misc
+		1) Linted javascript code

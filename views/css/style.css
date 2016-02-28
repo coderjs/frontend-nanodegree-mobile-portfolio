@@ -29,15 +29,42 @@ form {
   font-weight: 800;
 }
 
+/* will-change is a property that optimizes animations by 
+letting the browser know which properties and elements are
+ about to be manipulated, potentially increasing the 
+ performance of that particular operation. 
+ http://www.w3schools.com/css/css_syntax.asp */
+ 
 .mover {
   position: fixed;
   width: 256px;
   z-index: -1;
+  will-change: transform;
 }
 
 .randomPizzaContainer {
   float: left;
   display: flex;
+  will-change: transform;
+}
+
+.small {
+  float: left;
+  display: flex;
+  width: 25%;
+  will-change: transform;
+}
+.medium {
+  float: left;
+  display: flex;
+  width: 33.33%;
+  will-change: transform;
+}
+.large {
+  float: left;
+  display: flex;
+  width: 50%;
+  will-change: transform;
 }
 
 .randomPizzaContainer:after {
