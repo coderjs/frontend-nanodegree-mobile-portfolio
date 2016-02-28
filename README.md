@@ -18,6 +18,7 @@ This is my submission for project 4 of the Udacity Front End Developer Nanodegre
 
 ### APPROACH:
 As I am still a relatively new developer (and these are relatively advanced concepts for me), I have approached this project as follows:
+
 1. Watched all specified Udacity course lectures and completed all quizes
 1. Reviewed many of the recommended Udacuty supplemental materials
 1. Conducted extensive independent research on core subject-matter to shore-up my comprehension (links referenced in file)
@@ -26,6 +27,7 @@ As I am still a relatively new developer (and these are relatively advanced conc
 
 ### CONCEPTS LEARNED AND APPLIED:
 In this assignment I have learned and applied the following concepts:
+
 1. Performance benefits of reducing [large] image size
 1. Performance benefits of simplifying unnecessarily complex code
 1. Performance benefits of eliminating forced layout
