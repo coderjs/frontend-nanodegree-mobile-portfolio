@@ -46,6 +46,7 @@ letting the browser know which properties and elements are
   float: left;
   display: flex;
   will-change: transform;
+  backface-visibility: hidden;
 }
 
 .small {

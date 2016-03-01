@@ -6,13 +6,18 @@ This is my submission for project 4 of the Udacity Front End Developer Nanodegre
 
 ### PROJECT OUTCOMES:
 	Original File (http://cameronwp.github.io/udportfolio/views/pizza.html)
-		* Time to generate pizzas on load: 14.640ms
+		* Time to generate pizzas on load: 14.64ms
 		* Time to resize pizzas: 138.045ms
 		* PageSpeed Insight Score - Root: 28/100 (http://cameronwp.github.io/udportfolio/)
 		* PageSpeed Insight Score - Pizza: 66/100 (http://cameronwp.github.io/udportfolio/views/pizza.html)
-	Optimized File :
-		* Time to generate pizzas on load: 12.460ms
+	Optimized File (Submission 1):
+		* Time to generate pizzas on load: 12.46ms
 		* Time to resize pizzas: 1.72ms
+		* PageSpeed Insight Score - Root: 91/100 (http://coderjs.github.io/frontend-nanodegree-mobile-portfolio/)
+		* PageSpeed Insight Score - Pizza: 77/100 (http://coderjs.github.io/frontend-nanodegree-mobile-portfolio/views/pizza.html)
+	Optimized File (Submission 2):
+		* Time to generate pizzas on load: 12.25ms
+		* Time to resize pizzas: 1.19ms
 		* PageSpeed Insight Score - Root: 91/100 (http://coderjs.github.io/frontend-nanodegree-mobile-portfolio/)
 		* PageSpeed Insight Score - Pizza: 77/100 (http://coderjs.github.io/frontend-nanodegree-mobile-portfolio/views/pizza.html)
 
@@ -46,7 +51,8 @@ Below is a partial summary of the changes made to this sample portfolio.
 1. Referenced the smaller images in the html files
 
 ##### views/main.js
-1. Used getElementsByClassName() instead of querySelectorAll() and moved outside loop
+1. Used getElementsByClassName() instead of querySelectorAll() 
+1. Moved components outside loop where possible
 1. Fixed random bug (changed adjective "noise" to the intended "noisy")
 1. Replaced function determineDx() with simpler code
 1. Made minor changes to User Timing API
@@ -54,6 +60,11 @@ Below is a partial summary of the changes made to this sample portfolio.
 1. Reduced number of pizza columns
 1. Moved mPizzas function outside of loop
 1. Reduced number of pizzas to display on page
+1. Employed "use strict" where appropriate
+1. Moved array length to local variable so as to prevent calling at each iteration
+1. Refactored code to consolidate lines
+1. Modified code to calculate the number of pizzas needed to fill the screen based on browser window resolution
+1. Utilized translateX to define a 2D translation
 
 ##### views/css.style
 1. Added additional attributes to css classes, removing them from javascript

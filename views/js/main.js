@@ -420,20 +420,21 @@ var resizePizzas = function(size) {
 
   // Changes text on the page to show size of pizza and returns new size of pizza.
   // Changed this function to return "small", "medium", and "large", and added as class names in the CSS file.
-  // document.querySelector() returns the 1st element in the document that matches the specified selectors.
-  // https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector
+  // Changed from querySelectorAll to getElementById because its faster
+  // document.getElementById() returns a reference to an element ID (attribute in HTML or from script.)
+  //https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById
 
   function changeSliderLabel(size) {
     "use strict";
     switch(size) {
       case "1":
-        document.querySelector("#pizzaSize").innerHTML = "Small";
+        document.getElementById("pizzaSize").innerHTML = "Small";
         return "small";
       case "2":
-        document.querySelector("#pizzaSize").innerHTML = "Medium";
+        document.getElementById("pizzaSize").innerHTML = "Medium";
         return "medium";
       case "3":
-        document.querySelector("#pizzaSize").innerHTML = "Large";
+        document.getElementById("pizzaSize").innerHTML = "Large";
         return "large";
       default:
         console.log("bug in changeSliderLabel");
@@ -444,15 +445,23 @@ var resizePizzas = function(size) {
 
   // Iterates through pizza elements on the page and changes the width instead of using querySelectorAll
   // Performance improved by using getElementsByClassName and by moving this outside the loop.
+  // Modified code to save the array length in a local var, so the array's length isn't accessed at each iteration.
   function changePizzaSizes(size) {
     "use strict";
     var allPizzaContainers = document.getElementsByClassName("randomPizzaContainer");
+    for (var i = 0, len = allPizzaContainers.length; i < len; i++) { 
+      // Now this just adds a CSS class for the appropriate size. Each CSS class has width as a percent.
+      allPizzaContainers[i].className = "randomPizzaContainer " + dx;
+    }
+  }
+    
+    /*
     for (var i = 0; i < allPizzaContainers.length; i++) {
       // Now this just adds a CSS class for the appropriate size. Each CSS class has width as a percent.
       allPizzaContainers[i].className = "randomPizzaContainer " + dx;
     }
   }
-
+*/
   /*
   //changeSliderLabel(size);
 
@@ -556,13 +565,19 @@ function updatePositions() {
   // var items = document.querySelectorAll('.mover');
   var items = document.getElementsByClassName('mover');
 
-  for (var i = 0; i < items.length; i++) {
+  //for (var i = 0; i < items.length; i++) {
     // Using transform instead of using style.left to change position.
     // http://www.w3schools.com/jsref/prop_style_transform.asp
     // http://www.w3schools.com/jsref/prop_style_left.asp
-    var phase = Math.sin((theScrollTop / 1250) + (i % 5));
-    var newPos = items[i].basicLeft + 100 * phase - 600 + 'px';
-    items[i].style.transform = "translateX(" + newPos + ")";
+    // Modified code to save the array length in a local var, so the array's length isn't accessed at each iteration.
+    // Moved the "phase" variable creation outside the loop
+    // Consolidated 'var newPOS' and 'items[i].style' lines below into a single line using style.transform
+  var phase;
+  for (var i = 0, len = items.length; i < len; i++) { 
+    phase = Math.sin((theScrollTop / 1250) + (i % 5));
+    items[i].style.transform = 'translateX(' + 100 * phase - 600 + 'px)';
+    //var newPos = items[i].basicLeft + 100 * phase - 600 + 'px';
+    //items[i].style.transform = "translateX(" + newPos + ")";
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -578,25 +593,60 @@ function updatePositions() {
 // runs updatePositions on scroll
 window.addEventListener('scroll', updatePositions);
 
-// Generates the sliding pizzas when the page loads.
-document.addEventListener('DOMContentLoaded', function() {
-  //reduced to 6 columns instead of 8
-  var cols = 6;
-  var s = 256;
+//console.log(screen.height / elem.style.height * columns);
 
-  //select #movingPizzas1 using getElementByID instead of querySelector.
-  //This was also moved outside of the loop as there is no need to call it each time.
+// Generates the sliding pizzas when the page loads.
+// Moved 'var elem' outside loop below to prevent creation every time loop is executed.
+
+/*
+document.addEventListener('DOMContentLoaded', function() {
+  var cols = 8;
+  var s = 256;
+  var elem = document.createElement('img');
+  
+  // select #movingPizzas1 using getElementByID instead of querySelector.
+  // This was also moved outside of the loop as there is no need to call it each time.
+  // Deprecated elem.basicLeft in favor of elem.style.left
   var mPizzas = document.getElementById("movingPizzas1");
   //Reduced to 30 pizzas instead of 200 to expedite paint.
   for (var i = 0; i < 30; i++) {
-    var elem = document.createElement('img');
+    elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
-    elem.basicLeft = (i % cols) * s;
+    //elem.basicLeft = (i % cols) * s; 
+    elem.style.left = (i % cols) * s + 'px';
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     mPizzas.appendChild(elem);
   }
+*/
+
+  // Select #movingPizzas1 using getElementByID instead of querySelector.
+  // Moved 'elem' variable outside the loop as there is no need to call it each time.
+  // Deprecated elem.basicLeft in favor of elem.style.left
+  // Reduced number pizzas generated to fit what is visible onscreen
+document.addEventListener('DOMContentLoaded', function() {
+  var screenHeight = screen.availHeight;
+  var s = 256;
+  var cols = 8;
+  var rows = screenHeight / s;                  // Generate total pizzas required based on available screen dimensions
+  var pizzaTotal = Math.ceil(cols * rows);      // ceil rounds up to the next whole number
+  var movingPizzas = document.getElementById("movingPizzas1");
+  var elem = document.createElement('img');
+  for (var i = 0; i < pizzaTotal; i++) {
+    elem = document.createElement('img');
+    elem.className = 'mover';
+    elem.src = "images/pizza.png";
+    elem.height = "100";
+    elem.width  = "73";
+    elem.style.height = elem.height + 'px';
+    elem.style.width = elem.width + 'px';
+    //elem.basicLeft = (i % cols) * s;
+    elem.style.left = (i % cols) * s + 'px';
+    elem.style.top = (Math.floor(i / cols) * s) + 'px';
+    movingPizzas.appendChild(elem);
+  }
+  
   updatePositions();
 });
