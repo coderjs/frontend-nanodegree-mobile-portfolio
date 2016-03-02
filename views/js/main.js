@@ -625,8 +625,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Select #movingPizzas1 using getElementByID instead of querySelector.
   // Moved 'elem' variable outside the loop as there is no need to call it each time.
-  // Deprecated elem.basicLeft in favor of elem.style.left
-  // Reduced number pizzas generated to fit what is visible onscreen
+  // Deprecated elem.basicLeft in favor of elem.style.left.
+  // Reduced number pizzas generated to fit what is visible onscreen.
 document.addEventListener('DOMContentLoaded', function() {
   var screenHeight = screen.availHeight;
   var s = 256;
