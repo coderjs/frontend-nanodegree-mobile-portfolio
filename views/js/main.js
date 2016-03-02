@@ -572,6 +572,7 @@ function updatePositions() {
     // Modified code to save the array length in a local var, so the array's length isn't accessed at each iteration.
     // Moved the "phase" variable creation outside the loop
     // Consolidated 'var newPOS' and 'items[i].style' lines below into a single line using style.transform
+    // Removed the '-600' operation from the translateX operation below as it prevented pizzas from moving
   var phase;
   for (var i = 0, len = items.length; i < len; i++) { 
     phase = Math.sin((theScrollTop / 1250) + (i % 5));
