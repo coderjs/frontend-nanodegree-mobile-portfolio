@@ -15,7 +15,7 @@ This is my submission for project 4 of the Udacity Front End Developer Nanodegre
 		* Time to resize pizzas: 1.72ms
 		* PageSpeed Insight Score - Root: 91/100 (http://coderjs.github.io/frontend-nanodegree-mobile-portfolio/)
 		* PageSpeed Insight Score - Pizza: 77/100 (http://coderjs.github.io/frontend-nanodegree-mobile-portfolio/views/pizza.html)
-	Optimized File (Submission 2):
+	Optimized File (Submission 2 - after corrections listed below):
 		* Time to generate pizzas on load: 12.25ms
 		* Time to resize pizzas: 1.19ms
 		* PageSpeed Insight Score - Root: 91/100 (http://coderjs.github.io/frontend-nanodegree-mobile-portfolio/)
@@ -33,7 +33,7 @@ As I am still a relatively new developer (and these are relatively advanced conc
 ### CONCEPTS LEARNED AND APPLIED:
 In this assignment I have learned and applied the following concepts:
 
-1. Performance benefits of reducing [large] image size
+1. Performance benefits of reducing large image size
 1. Performance benefits of simplifying unnecessarily complex code
 1. Performance benefits of eliminating forced layout
 1. Performance benefits of preventing unnecessary looping through arrays of variables
@@ -68,6 +68,7 @@ Below is a partial summary of the changes made to this sample portfolio.
 
 ##### views/css.style
 1. Added additional attributes to css classes, removing them from javascript
+1. Added the backface-visibility property with the hidden value to enable hardware acceleration
 
 ##### Other/Misc
 1. Linted javascript code

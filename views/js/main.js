@@ -575,7 +575,7 @@ function updatePositions() {
   var phase;
   for (var i = 0, len = items.length; i < len; i++) { 
     phase = Math.sin((theScrollTop / 1250) + (i % 5));
-    items[i].style.transform = 'translateX(' + 100 * phase - 600 + 'px)';
+    items[i].style.transform = 'translateX(' + 100 * phase + 'px)';
     //var newPos = items[i].basicLeft + 100 * phase - 600 + 'px';
     //items[i].style.transform = "translateX(" + newPos + ")";
   }
